@@ -1,0 +1,40 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/en-header.ejs') -%>
+    <section class="heading">
+        <h1>Vacancies with our clients</h1>
+    </section>
+    <main>
+        <article>
+            <section>
+                <p>Although recruitment is not the core business of Collier Advies HR Consultancy, we frequently have job openings available with our clients.</p>
+            </section>
+        </article>
+        <section>
+            <% if (!vacatures.some(vacature => vacature.online)) { %>
+                <ul style="padding: 0" class="vacancies not-online">
+                    <!-- LinkedIn referentie toevoegen -->
+                    <li><i class="fa-solid fa-circle-xmark"></i><br><p>There are currently no job openings online at the moment.</p></li>
+                </ul>
+            <% } else { %>
+                <ul class="vacancies" style="padding: 0">
+                    <% vacatures.forEach(vacature => { %>
+                        <% if (vacature.online) { %>
+                            <li>
+                                <a href="/en/vacatures/<%= vacature.href %>">
+                                    <% if (vacature.img) { %>
+                                        <img src="/images/<%= vacature.img %>" alt="Logo van <%= vacature.bedrijf %>">
+                                    <% } %>
+                                    <div>
+                                        <h2><%= vacature.positieEn %> - <%= vacature.bedrijf %></h2>
+                                        <h3><%= vacature.dienstverband %></h3>
+                                        <h4><%= vacature.uren %> hours</h4>
+                                    </div>
+                                </a>
+                            </li>
+                        <% } %>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') -%>

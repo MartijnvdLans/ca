@@ -1,0 +1,46 @@
+<body>
+    <header>
+        <a href="/en/home" style="line-height: 100%;"><img class="logo" src="/images/collier-advies-logo.png" alt="Collier Advies Logo"></a>
+        <nav>
+            <ul class="navigation">
+                <li class="main-list <%= activePage.includes('home') ? 'active' : '' %>">
+                    <a href="/en/home">Home</a>
+                </li>
+                <li class="main-list <%= activePage.includes('over-ons') || activePage.includes('werkwijze') || activePage.includes('samenwerking') || activePage.includes('missie-en-visie') || activePage.includes('team') ? 'active' : '' %>">
+                    <a href="/en/over-ons">Our Team</a>
+                    <ul class="sub-over">
+                        <li class="<%= activePage.includes('werkwijze') ? 'active' : '' %>"><a href="/en/over-ons/werkwijze">Approach</a></li>
+                        <li class="<%= activePage.includes('samenwerking') ? 'active' : '' %>"><a href="/en/over-ons/samenwerking">Cooperation</a></li>
+                        <li class="<%= activePage.includes('missie-en-visie') ? 'active' : '' %>"><a href="/en/over-ons/missie-en-visie">Mission and Vision</a></li>
+                        <li class="<%= activePage.includes('team') ? 'active' : '' %>"><a href="/en/over-ons/team">Our team</a></li>
+                    </ul>
+                </li>
+                <li class="main-list <%= activePage.includes('hr-advies-diensten') ? 'active' : '' %>">
+                    <a href="/en/hr-advies-diensten">HR Services</a>
+                    <ul class="sub-diensten">
+                        <li class="<%= activePage.includes('hr-support') ? 'active' : '' %>"><a href="/en/hr-advies-diensten/hr-support">HR Support</a></li>
+                        <li class="<%= activePage.includes('organisatieontwikkeling') ? 'active' : '' %>"><a href="/en/hr-advies-diensten/organisatieontwikkeling">Organizational development</a></li>
+                        <li class="<%= activePage.includes('strategisch-hr-advies') ? 'active' : '' %>"><a href="/en/hr-advies-diensten/strategisch-hr-advies">Strategic HR advice</a></li>
+                        <li class="<%= activePage.includes('bijkomende-dienstverlening') ? 'active' : '' %>"><a href="/en/hr-advies-diensten/bijkomende-dienstverlening">Additional services</a></li>
+                    </ul>
+                </li>
+                <li class="main-list <%= activePage.includes('uw-voordeel') ? 'active' : '' %>">
+                    <a href="/en/uw-voordeel">Advantages</a>
+                    <ul class="sub-voordeel">
+                        <li class="<%= activePage.includes('kosten-besparend') ? 'active' : '' %>"><a href="/en/uw-voordeel/kosten-besparend">Cost savings</a></li>
+                        <li class="<%= activePage.includes('Kwaliteit') ? 'active' : '' %>"><a href="/en/uw-voordeel/Kwaliteit">Quality</a></li>
+                        <li class="<%= activePage.includes('Continuiteit') ? 'active' : '' %>"><a href="/en/uw-voordeel/Continuiteit">Continuity</a></li>
+                        <li class="<%= activePage.includes('flexibiliteit') ? 'active' : '' %>"><a href="/en/uw-voordeel/flexibiliteit">Flexibility</a></li>
+                    </ul>
+                </li>
+                <li class="main-list <%= activePage.includes('vacatures') ? 'active' : '' %>"><a href="/en/vacatures">Vacancies</a></li>
+                <li class="main-list <%= activePage.includes('cursus') ? 'active' : '' %>"><a href="/en/cursus">Training</a></li>
+                <li class="main-list <%= activePage.includes('contact') ? 'active' : '' %>"><a href="/en/contact">Contact</a></li>
+                <li class="main-list">
+                    <a href="/<%= activePage.length === 2 ? activePage[0] + '/' + activePage[1] : activePage %>" class="flag">
+                        <img src="/images/nl-icon.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>

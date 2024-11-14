@@ -1,0 +1,30 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <section class="heading">
+        <h1>Wie zijn wij</h1>
+    </section>
+    <main>
+        <section>
+            <article>
+                <img src="/images/ca_medewerkers.webp" alt="" style="max-width: 600px;margin: 0 auto 2em auto; display:flex;">
+                <ul class="team">
+                    <% medewerkers.forEach(medewerker => { %>
+                        <% if (medewerker.online) { %>
+                            <li>
+                                <% if (medewerker.img) { %>
+                                    <img src="/images/<%= medewerker.img %>" alt="Portretfoto van <%= medewerker.naam %>">
+                                <% } %>
+                                <div>
+                                    <h2><%= medewerker.naam %></h2>
+                                    <p><%- medewerker.textinhoud %></p>
+                                </div>
+                            </li>
+                        <% } %>
+                    <% }); %>
+                    <!-- <textarea name="content" id="editor">&lt;p&gt;This is some sample content.&lt;/p&gt;</textarea>
+                    <button id="testButton">Test</button> -->
+                </ul>
+            </article>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') -%>

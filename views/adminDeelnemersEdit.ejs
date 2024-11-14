@@ -1,0 +1,90 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus" class="active-admin">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+                <form action="/edit-deelnemer" method="POST" enctype="multipart/form-data">
+                    <div class="form-flex">
+                        <label for="naam">Naam</label>
+                        <input type="text" name="naam" value="<%= getId.naam %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="id">ID (Not editable)</label>
+                        <input type="text" name="id" value="<%= getId._id %>" readonly style="background-color: #ddd;border: 1px solid #aaa;">
+                    </div>
+                    <div class="form-flex">
+                        <label for="functie">Functie</label>
+                        <input type="text" name="functie" value="<%= getId.functie %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="bedrijfsnaam">Bedrijfsnaam</label>
+                        <input type="text" name="bedrijfsnaam" value="<%= getId.bedrijfsnaam %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="factuur">Factuuradres</label>
+                        <div style="display: flex;">
+                            <input style="width: 200px;margin-right: 5px;" type="text" name="straatnaam" value="<%= getId.straatnaam %>" placeholder="Straatnaam">
+                            <input style="width: 60px;" type="text" name="huisnummer" value="<%= getId.huisnummer %>" placeholder="nr">
+                        </div>
+                        <div style="display: flex;margin-top: 5px;">
+                            <input style="width: 65px;margin-right: 5px;" type="text" name="postcode" value="<%= getId.postcode %>" placeholder="1234AA">
+                            <input style="width: 200px;" type="text" name="woonplaats" value="<%= getId.woonplaats %>" placeholder="Woonplaats">
+                        </div>
+                    </div>
+                    <div class="form-flex">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" value="<%= getId.email %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="tel">Telefoonnummer</label>
+                        <input type="tel" name="tel" value="<%= getId.tel %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="optionOne">Factuur Verstuurd</label>
+                        <% if (getId.optionOne == true) { %>
+                            <input type="checkbox" id="optionOne" name="optionOne" value="<%= getId.optionOne %>" checked>
+                        <% } else { %>
+                            <input type="checkbox" id="optionOne" name="optionOne" value="<%= getId.optionOne %>">
+                        <% } %>
+                    </div>
+                    <div class="form-flex">
+                        <label for="optionTwo">Factuur Betaald</label>
+                        <% if (getId.optionTwo == true) { %>
+                            <input type="checkbox" id="optionTwo" name="optionTwo" value="<%= getId.optionTwo %>" checked>
+                        <% } else { %>
+                            <input type="checkbox" id="optionTwo" name="optionTwo" value="<%= getId.optionTwo %>">
+                        <% } %>
+                    </div>
+                    <div class="form-flex">
+                        <label for="optionThree">Factuur Bevestigd</label>
+                        <% if (getId.optionThree == true) { %>
+                            <input type="checkbox" id="optionThree" name="optionThree" value="<%= getId.optionThree %>" checked>
+                        <% } else { %>
+                            <input type="checkbox" id="optionThree" name="optionThree" value="<%= getId.optionThree %>">
+                        <% } %>
+                    </div>
+                    <div class="form-flex">
+                        <label for="wensen">Text</label>
+                        <textarea name="wensen" rows="5" style="height: 200px;"><%= getId.wensen %></textarea>
+                    </div>
+                    <button>Edit</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('.vac-inh').forEach(el => {
+            el.textContent = el.textContent.slice(0, 500) + (el.textContent.length > 100 ? '...' : '');
+        });
+    </script>
+</html>

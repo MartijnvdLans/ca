@@ -1,0 +1,56 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers" class="active-admin">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+                <form action="/edit-worker" method="post" enctype="multipart/form-data">
+                    <div class="form-flex">
+                        <label for="naam">Naam</label>
+                        <input type="text" name="naam" value="<%= getId.naam %>">
+                    </div>
+                    <div class="form-flex">
+                        <label for="img">Foto - (Leeg laten als er al een foto is)</label>
+                        <input type="file" name="img" accept="image/png, image/jpeg">
+                    </div>
+                    <div class="form-flex">
+                        <label for="id">ID (Not editable)</label>
+                        <input type="text" name="id" value="<%= getId._id %>" readonly style="background-color: #ddd;border: 1px solid #aaa;">
+                    </div>
+                    <div class="form-flex">
+                        <label for="online">zichtbaar</label>
+                        <% if (getId.online == true) { %>
+                            <input type="checkbox" id="online" name="online" value="<%= getId.online %>" checked>
+                        <% } else { %>
+                            <input type="checkbox" id="online" name="online" value="<%= getId.online %>">
+                        <% } %>
+                    </div>
+                    <div class="form-flex">
+                        <label for="textinhoud">Text</label>
+                        <textarea id="text" name="textinhoud"><%= getId.textinhoud %></textarea>
+                    </div>
+                    
+                    <div class="form-flex">
+                        <label for="textEn">Engelse text</label>
+                        <textarea id="textEn" name="textEn"><%= getId.textEn %></textarea>
+                    </div>
+                    <button>Edit</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('.vac-inh').forEach(el => {
+            el.textContent = el.textContent.slice(0, 500) + (el.textContent.length > 100 ? '...' : '');
+        });
+    </script>
+</html>

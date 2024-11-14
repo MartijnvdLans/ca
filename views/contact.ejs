@@ -1,0 +1,57 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <section class="heading">
+        <h1>Contact</h1>
+    </section>
+    <main>
+        <section>
+            <article>
+                <section>
+                    <h2>Collier Advies Human Resources Consultancy
+                        werkt ook voor u!</h2>
+
+                        <p>Of u nu structureel of tijdelijk van onze HR dienstverlening gebruik wilt maken, wij doen er te
+                            allen tijden alles aan om u – en uw medewerkers – antwoord te geven op iedere HR vraag.
+                            De zorg voor al uw personeelszaken pakken wij met passie en toewijding op.</p>
+                            <section class="quote">
+                                <p>Structureel of tijdelijk. Bij iedere Human Resources vraag zijn wij graag uw
+                                    sparringpartner en zorgen wij voor een correcte en passende oplossing.</p>
+                            </section>
+                            <h2>Vragen staat vrij</h2>
+                            <p>Heeft u een vraag over het professionaliseren van uw HR afdeling, wilt u speciale HR
+                                projecten opstarten, zoekt u vanuit het buitenland Nederlands HR advies, wilt u meer weten
+                                over het Nederlands HR beleid, arbeidsrecht of migratie procedures? Wij adviseren en
+                                assisteren u graag.</p>
+                </section>
+                <section>
+                    <h2>Afspraak maken</h2>
+                                <p>Wanneer u onderstaand formulier zo volledig mogelijk invult, nemen wij binnen 24 uur
+                                    contact met u op. Uiteraard kunt u ons ook bellen of direct mailen. Graag tot ziens bij Collier
+                                    Advies Human Resources Consultancy.</p>
+                </section>
+            </article>
+        </section>
+        <section>
+            <article>
+                <% if (emailSent == true) { %>
+                    <form class="frontform" action="/send-form" method="POST">
+                        <p><i class="fa-regular fa-circle-check"></i></p>
+                        <p>Bedankt voor uw bericht. <br>We zullen binnen 24 uur contact met u op proberen te nemen.</p>
+                    </form>
+                <% } else { %>
+                <form class="frontform" action="/send-form" method="POST">
+                    <label for="naam">Naam</label>
+                    <input type="text" id="naam" name="naam" required>
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="tel">Telefoonnummer</label>
+                    <input type="tel" id="tel" name="tel">
+                    <label for="msg">Bericht</label>
+                    <textarea name="msg" id="msg" name="msg" required></textarea>
+                    <button>Verstuur</button>
+                </form>
+                <% } %>
+            </article>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') -%>

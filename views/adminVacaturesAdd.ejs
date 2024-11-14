@@ -1,0 +1,67 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures" class="active-admin">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+                <form action="/add-vacature" method="post" enctype="multipart/form-data">
+                    <div class="form-flex">
+                        <label for="bedrijf">Bedrijfnaam</label>
+                        <input type="text" name="bedrijf">
+                    </div>
+                    <div class="form-flex">
+                        <label for="positie">Functie</label>
+                        <input type="text" name="positie">
+                    </div>
+                    <div class="form-flex">
+                        <label for="positieEn">Functie (engels)</label>
+                        <input type="text" name="positieEn">
+                    </div>
+                    <div class="form-flex">
+                        <label for="img">Foto - (Leeg laten als er al een foto is)</label>
+                        <input type="file" name="img" accept="image/png, image/jpeg">
+                    </div>
+                    <div class="form-flex">
+                        <label for="dienstverband">Dienstverband</label>
+                        <input type="text" name="dienstverband">
+                    </div>
+                    <div class="form-flex">
+                        <label for="uren">Uren</label>
+                        <input type="text" name="uren">
+                    </div>
+                    <div class="form-flex">
+                        <label for="locatie">locatie</label>
+                        <input type="text" name="locatie">
+                    </div>
+                    <div class="form-flex">
+                        <label for="online">zichtbaar</label>
+                            <input type="checkbox" id="online" name="online" checked>
+                    </div>
+                    <div class="form-flex">
+                        <label for="textinhoud">Text</label>
+                        <textarea id="editfield" name="textinhoud"></textarea>
+                    </div>
+                    <div class="form-flex">
+                        <label for="textEn">Text</label>
+                        <textarea id="editfield" name="textEn"></textarea>
+                    </div>
+                    <button>Voeg toe</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('.vac-inh').forEach(el => {
+            el.textContent = el.textContent.slice(0, 500) + (el.textContent.length > 100 ? '...' : '');
+        });
+    </script>
+</html>

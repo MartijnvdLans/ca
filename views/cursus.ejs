@@ -1,0 +1,102 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <section class="heading">
+        <h1>Training</h1>
+    </section>
+    <main>
+        <section>
+            <article>
+                <section>
+                    <h2>Training verzuim (met trainingsacteur)</h2>
+                    <strong>
+                        Een training voor managers en leidinggevenden die hun kennis wat betreft de
+Wet Verbetering Poortwachter willen uitbreiden en hun vaardigheden in
+gesprektechnieken voor verzuimgesprekken willen verbeteren.
+                    </strong>
+
+                    <ul class="list">
+                        <li>Datum: Donderdag 27 februari 2025</li>
+                        <li>Locatie: De Watertoren, Lisse</li>
+                        <li>Kosten: € 450 ,- excl. btw (inclusief arrangement)</li>
+                        <li>Duur: 1 dag</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Inhoud van de training</h2>
+                    <p>Als manager of leidinggevende wordt u regelmatig geconfronteerd met ziekteverzuim binnen
+                        u team. Verzuim is complex, u moet veel regels volgen en goede communicatie met u
+                        medewerkers is ook van groot belang. Onze verzuimtraining biedt u hiervoor de handvatten.</p>
+                        <p>Tijdens deze training richten we ons op twee belangrijke onderdelen. We behandelen de Wet
+                            Verbetering Poortwachter, zodat u precies weet wat er gedurende langdurig verzuim wordt
+                            verwacht. Daarnaast behandelen we verschillende casussen onder begeleiding van een
+                            trainingsacteur, zodat u effectieve gesprekken kan voeren met medewerkers gedurende het
+                            traject Wet Verbetering Poortwachter.</p>
+                            <p>Na afloop van de verzuimtraining weet u precies wat er van u verwacht wordt bij langdurig
+                                verzuim, waardoor u medewerkers kunt ondersteunen bij hun terugkeer naar werk door
+                                middel van effectieve communicatie.</p>
+                </section>
+                <section>
+                    <h2>Voor wie is deze training?</h2>
+                    <p>Deze cursus is bedoeld voor managers en leidinggevenden die nieuw zijn met de Wet
+                        Verbetering Poortwachter of die beschikken over basiskennis en dit willen verbreden. U bent
+                        op zoek naar de kennis en effectieve communicatie om u werknemer op juiste wijze te
+                        ondersteunen bij verzuim.</p>
+                </section>
+                <section>
+                    <h2>Wat u ontwikkelt tijdens deze training:</h2>
+                    <ul class="list">
+                        <li>Verdiepte kennis van alle stappen binnen de Wet Verbetering Poortwachter;</li>
+                        <li>Vaardigheden om verschillende gesprekken te voeren die relevant zijn binnen het
+                            verzuimtraject;</li>
+                            <li>Inzicht in gesprekstechnieken die u kunt inzetten voor effectieve communicatie met u
+                                medewerkers;</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contact</h2>
+                    <p>Voor meer informatie kunt u contact opnemen met <a href="mailto:laura@collier-advies.nl">laura@collier-advies.nl</a></p>
+                </section>
+                <section>
+                    <h2>Inschrijven</h2>
+                    <p>Via onderstaande formulier kunt u zichzelf inschrijven voor de training. Na uw inschrijving
+                        ontvangt u van ons een mail met verdere informatie.</p>
+                </section>
+            </article>
+        </section>
+        <section>
+            <article>
+                <% if (emailSent == true) { %>
+                    <form class="frontform" action="/send-email" method="POST">
+                        <p><i class="fa-regular fa-circle-check"></i></p>
+                        <p>Uw aanmelding is verstuurd!<br>U ontvangt binnen een paar minuten een bevestiging in de mail.</p>
+                    </form>
+                <% } else { %>
+                    <form class="frontform" action="/send-email" method="POST">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="naam">
+                        <label for="functie">Functie</label>
+                        <input type="text" id="functie" name="functie">
+                        <label for="bedrijfsnaam">Bedrijfsnaam</label>
+                        <input type="text" id="bedrijfsnaam" name="bedrijfsnaam">
+                        <fieldset style="outline: none;border: none">
+                            <legend>Factuuradres</legend>
+                            <div>
+                                <input type="text" id="straatnaam" name="straatnaam" placeholder="Straatnaam">
+                                <input type="text" id="huisnummer" name="huisnummer" placeholder="Huisnr." style="width: 65px;">
+                            </div>
+                            <input type="text" id="woonplaats" name="woonplaats" placeholder="Woonplaats">
+                            <input type="text" id="postcode" name="postcode" placeholder="Postcode 1234AA">
+                        </fieldset>
+                        <label for="email">E-mailadres</label>
+                        <input type="email" id="email" name="email">
+                        <label for="tel">Telefoonnummer</label>
+                        <input type="tel" id="tel" name="tel">
+                        <label for="wensen">Eventuele wensen (bv. dieet of allergieën)</label>
+                        <textarea id="wensen" name="wensen" rows="5" style="padding:.5em;"></textarea>
+                        <button>Schrijf je in</button>
+                    </form>
+                <% } %>
+            </article>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') -%>

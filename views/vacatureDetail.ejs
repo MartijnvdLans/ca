@@ -1,0 +1,18 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <section class="heading">
+        <h1 class="h1_vacature" style="color: #fff;"><%= getHref.positie %> bij <%= getHref.bedrijf %></h1>
+    </section>
+    <main>
+        <p style="max-width: 1040px;margin: 0 auto;margin-bottom: 1em;"><a class="terug" href="/vacatures">← Terug naar vacatures</a></p>
+        <section>
+            <article class="vacature-detail">
+                <h2><%= getHref.positie %> bij <%= getHref.bedrijf %></h2>
+                <h3><%= getHref.locatie %> - <%= getHref.dienstverband %></h3>
+                <h4><%= getHref.uren %> uur</h4>
+                <p><%- getHref.textinhoud %></p>
+                
+            </article>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') -%>

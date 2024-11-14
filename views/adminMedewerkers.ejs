@@ -1,0 +1,55 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers" class="active-admin">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+                <table class="admin-table">
+                    <tr>
+                        <td>Foto</td>
+                        <td>naam</td>
+                        <td>text</td>
+                        <td>text engels</td>
+                        <td>zichtbaar</td>
+                        <td>bewerk</td>
+                        <td>verwijder</td>
+                    </tr>
+                    <% medewerkers.forEach(medewerker => { %>
+                        <tr>
+                            <td style="text-align: center;"><img src="/images/<%= medewerker.img %>" alt=""><br><%= medewerker.img %></td>
+                            <td style="width: 200px;text-align: center;"><%= medewerker.naam %></td>
+                            <td class="vac-inh"><%= medewerker.textinhoud %></td>
+                            <td class="vac-inh"><%= medewerker.textEn %></td>
+                            <td style="text-align: center;">
+                                <% if (medewerker.online == true) { %>
+                                    ja
+                                <% } else { %>
+                                    nee
+                                <% } %>
+                            </td>
+                            <td><a href="/admin-ca/medewerkers/edit/<%= medewerker._id %>"><i class="fa fa-pencil"></i></a></td>
+                            <td><a href="/delete-worker/<%= medewerker._id %>"><i class="fa fa-trash-can"></i></a></td>
+                        </tr>
+                    <% }); %>
+                    <tr>
+                        <td colspan="7" style="font-size: 25px;"><a href="/admin-ca/medewerkers/add"><i class="fa fa-plus"></i></a></td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('.vac-inh').forEach(el => {
+            el.textContent = el.textContent.slice(0, 200) + (el.textContent.length > 100 ? '...' : '');
+        });
+    </script>
+</html>

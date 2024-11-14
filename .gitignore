@@ -1,0 +1,54 @@
+# Node.js dependencies
+node_modules/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+
+# IDE or editor configurations
+.vscode/
+.idea/
+
+# Logs and debug files
+logs/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build output
+/dist
+/build
+
+# Dependency directories
+bower_components/
+
+# Coverage reports
+coverage/
+
+# Files created by the operating system
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Temporary files
+*.swp
+*.swo
+
+# Other unwanted files
+*.tgz
+*.bak
+*.tmp
+
+# Docker-related files
+docker-compose.override.yml
+Dockerfile
+.dockerignore
+
+# Files related to Heroku deployment
+app.json

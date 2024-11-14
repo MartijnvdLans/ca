@@ -1,0 +1,52 @@
+<body>
+    <div class="body">
+   <header>
+        <a href="/" style="line-height: 100%;"><img class="logo" src="/images/collier-advies-logo.png" alt="Collier Advies Logo"></a>
+        <div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <nav>
+                <ul class="navigation navActive">
+                    <li class="main-list <%= activePage.includes('home') ? 'active' : '' %>"><a href="/">Home</a></li>
+                    <li class="main-list <%= activePage.includes('over-ons') || activePage.includes('werkwijze') || activePage.includes('samenwerking') || activePage.includes('missie-en-visie') || activePage.includes('team') ? 'active' : '' %>">
+                        <a href="/over-ons">Over Ons</a>
+                        <ul class="sub-over">
+                            <li class="<%= activePage.includes('werkwijze') ? 'active' : '' %>"><a href="/over-ons/werkwijze">Werkwijze</a></li>
+                            <li class="<%= activePage.includes('samenwerking') ? 'active' : '' %>"><a href="/over-ons/samenwerking">Samenwerking</a></li>
+                            <li class="<%= activePage.includes('missie-en-visie') ? 'active' : '' %>"><a href="/over-ons/missie-en-visie">Missie en Visie</a></li>
+                            <li class="<%= activePage.includes('team') ? 'active' : '' %>"><a href="/over-ons/team">Ons team</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-list <%= activePage.includes('hr-advies-diensten') ? 'active' : '' %>">
+                        <a href="/hr-advies-diensten">HR Advies Diensten</a>
+                        <ul class="sub-diensten">
+                            <li class="<%= activePage.includes('hr-support') ? 'active' : '' %>"><a href="/hr-advies-diensten/hr-support">MKB HR Support</a></li>
+                            <li class="<%= activePage.includes('organisatieontwikkeling') ? 'active' : '' %>"><a href="/hr-advies-diensten/organisatieontwikkeling">Organisatieontwikkeling</a></li>
+                            <li class="<%= activePage.includes('strategisch-hr-advies') ? 'active' : '' %>"><a href="/hr-advies-diensten/strategisch-hr-advies">Strategisch HR Advies</a></li>
+                            <li class="<%= activePage.includes('bijkomende-dienstverlening') ? 'active' : '' %>"><a href="/hr-advies-diensten/bijkomende-dienstverlening">Bijkomdende dienstverlening</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-list <%= activePage.includes('uw-voordeel') ? 'active' : '' %>">
+                        <a href="/uw-voordeel">Uw Voordeel</a>
+                        <ul class="sub-voordeel">
+                            <li class="<%= activePage.includes('kosten-besparend') ? 'active' : '' %>"><a href="/uw-voordeel/kosten-besparend">Kosten besparend</a></li>
+                            <li class="<%= activePage.includes('Kwaliteit') ? 'active' : '' %>"><a href="/uw-voordeel/Kwaliteit">Kwaliteit</a></li>
+                            <li class="<%= activePage.includes('Continuiteit') ? 'active' : '' %>"><a href="/uw-voordeel/Continuiteit">Continuïteit</a></li>
+                            <li class="<%= activePage.includes('flexibiliteit') ? 'active' : '' %>"><a href="/uw-voordeel/flexibiliteit">Flexibiliteit</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-list <%= activePage.includes('vacatures') ? 'active' : '' %>"><a href="/vacatures">Vacatures bij Onze Klanten</a></li>
+                    <li class="main-list <%= activePage.includes('cursus') ? 'active' : '' %>"><a href="/cursus">Training</a></li>
+                    <li class="main-list <%= activePage.includes('contact') ? 'active' : '' %>"><a href="/contact">Contact</a></li>
+                    <li class="main-list">
+                        <a href="/en/<%= activePage.length === 2 ? activePage[0] + '/' + activePage[1] : activePage %>" class="flag">
+                            <img src="/images/uk-icon.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>

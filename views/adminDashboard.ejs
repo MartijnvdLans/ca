@@ -1,0 +1,19 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+            </section>
+        </section>
+    </main>
+</html>

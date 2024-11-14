@@ -1,0 +1,26 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <section style="background-color: var(--main-purple);">
+                <form class="login-admin" action="/login" method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="gebruikersnaam" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="wachtwoord" required>
+                    <% if (blocked) { %>
+                        <p style="color: #801414; font-size: 12px; border: 1px solid #801414; padding: .5em; background-color: #ffdede; line-height: 18px; margin-top: .5em;">
+                            Dit account is wegens meerdere aanmeldpogingen geblokkeerd. Neem contact op met de beheerder.
+                        </p>
+                    <% } %>
+                    <% if (!found) { %>
+                        <p style="color: #801414; font-size: 12px; border: 1px solid #801414; padding: .5em; background-color: #ffdede; line-height: 18px; margin-top: .5em;">
+                            Uw gebruikersnaam of wachtwoord is onjuist.
+                        </p>
+                    <% } %>
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+        </section>
+    </main>
+</html>

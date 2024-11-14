@@ -1,0 +1,63 @@
+<%- include('partials/head.ejs') -%>
+    <%- include('partials/header.ejs') -%>
+    <main class="admin-main">
+        <section class="admin-page">
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="/admin-ca/medewerkers">Bewerk Medewerkers</a></li>
+                    <li><a href="/admin-ca/vacatures" class="active-admin">Bewerk vacatures</a></li>
+                    <li><a href="/admin-ca/cursus">Bekijk deelnames</a></li>
+                </ul>
+                <form action="/logout" method="get">
+                    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</button>
+                </form>
+            </nav>
+            <section>
+                <table class="admin-table">
+                    <tr>
+                        <td>logo</td>
+                        <td>bedrijf</td>
+                        <td>functie</td>
+                        <td>dienstverband</td>
+                        <td>uren</td>
+                        <td>locatie</td>
+                        <td>zichtbaar</td>
+                        <td>TEXT</td>
+                        <td>TEXT engels</td>
+                        <td>bewerk</td>
+                        <td>verwijder</td>
+                    </tr>
+                    <% vacatures.forEach(vacature => { %>
+                        <tr>
+                            <td><img src="/images/<%= vacature.img %>" alt=""></td>
+                            <td style="text-align: center;"><%= vacature.bedrijf %></td>
+                            <td style="text-align: center;"><%= vacature.positie %> / <%= vacature.positieEn %></td>
+                            <td style="text-align: center;"><%= vacature.dienstverband %></td>
+                            <td style="text-align: center;"><%= vacature.uren %></td>
+                            <td style="text-align: center;"><%= vacature.locatie %></td>
+                            <td style="text-align: center;">
+                                <% if (vacature.online) {%>
+                                    ja
+                                <% } else { %>
+                                    nee
+                                <% } %>
+                            </td>
+                            <td class="vac-inh"><%- vacature.textinhoud %></td>
+                            <td class="vac-inh"><%- vacature.textEn %></td>
+                            <td><a href="/admin-ca/vacatures/edit/<%= vacature._id %>"><i class="fa fa-pencil"></i></a></td>
+                            <td><a href="/delete-vacature/<%= vacature._id %>"><i class="fa fa-trash-can"></i></a></td>
+                        </tr>
+                    <% }); %>
+                    <tr>
+                        <td colspan="11" style="font-size: 25px;"><a href="/admin-ca/vacatures/add"><i class="fa fa-plus"></i></a></td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('.vac-inh').forEach(el => {
+            el.textContent = el.textContent.slice(0, 200) + (el.textContent.length > 100 ? '...' : '');
+        });
+    </script>
+</html>

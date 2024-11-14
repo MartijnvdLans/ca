@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collier Advies</title>
+    <link rel="icon" type="image/x-icon" href="/images/collier-advies-logo.png">
+    <script src="https://cdn.tiny.cloud/1/8ydx8mudjqhvczfeqcimj1v5i68arwawbm1wcybnvypltp2g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script defer src="https://kit.fontawesome.com/bee050879a.js" crossorigin="anonymous"></script>
+    <script>
+      tinymce.init({
+          selector: '#editfield',
+          plugins: 'ai tinycomments emoticons image link lists table visualblocks wordcount checklist heading', // Include the 'heading' plugin
+          toolbar: 'undo redo | paragraph h2 h3 h4 blockquote | bold italic underline fontsize blocks | link table mergetags | align lineheight | checklist numlist bullist indent outdent | removeformat | heading', // Added 'heading' button
+          tinycomments_mode: 'embedded',
+          content_css: '/styles/style.css',
+          menubar: 'format',
+          tinycomments_author: 'Author name',
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+      });
+  </script>
+    <script defer src="/js/js.js"></script>
+</head>
